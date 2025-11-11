@@ -1,4 +1,4 @@
-package carroEletrico;
+package org.example;
 
 public interface VeiculoEletricoAutonomo extends Bateria, VeiculoAutonomo {
     public void monitorarBateria();

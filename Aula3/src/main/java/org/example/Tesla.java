@@ -1,4 +1,4 @@
-package carroEletrico;
+package org.example;
 
 public class Tesla implements VeiculoEletricoAutonomo{
     private String partida, destino;

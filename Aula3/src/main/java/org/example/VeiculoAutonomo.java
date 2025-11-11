@@ -1,4 +1,4 @@
-package carroEletrico;
+package org.example;
 
 public interface VeiculoAutonomo {
     public void ligarModoAutonomo();
