@@ -1,14 +1,14 @@
 package org.example;
 
 //classe model Usuário
-public class User {
+public class Usuario {
     //atributos
     private final int id;
     private final String nome;
     private final String email;
 
     //contrutor
-    public User(int id, String nome, String email) {
+    public Usuario(int id, String nome, String email) {
         this.id = id;
         this.nome = nome;
         this.email = email;

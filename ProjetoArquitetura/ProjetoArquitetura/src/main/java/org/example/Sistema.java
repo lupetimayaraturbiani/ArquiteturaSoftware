@@ -9,9 +9,9 @@ public class Sistema {
 
     //construtor(sem parametros)
     private Sistema() {
-        UserManager um = new UserManager();
-        PetManager pm = new PetManager();
-        AdoptionManager am = new AdoptionManager();
+        GerenciarUsuario um = new GerenciarUsuario();
+        GerenciarPet pm = new GerenciarPet();
+        GerenciarAdocao am = new GerenciarAdocao();
         this.facade = new FacadeHotel(um, pm, am);
     }
 
@@ -32,29 +32,29 @@ public class Sistema {
         System.out.println("=== Demo Hotel da Maria (console) ===");
 
         // Cadastrar usuários
-        User alice = f.registerUser("Alice", "alice@ex.com");
-        User bruno = f.registerUser("Bruno", "bruno@ex.com");
+        Usuario alice = f.cadastrarUsuario("Alice", "alice@ex.com");
+        Usuario bruno = f.cadastrarUsuario("Bruno", "bruno@ex.com");
 
         // Inscrever Alice para receber notificações
-        InterestedUser intAlice = new InterestedUser(alice);
-        f.subscribeToNewPets(intAlice);
+        UsuarioInteressado intAlice = new UsuarioInteressado(alice);
+        f.atrelarPet(intAlice);
 
         // Adicionar pets (cada add notifica inscritos)
         System.out.println("Adicionando pet 1...");
-        Pet p1 = f.addPet("Luna", "SRD", 2);
+        Pet p1 = f.adicionarPet("Luna", "SRD", 2);
 
         System.out.println("Adicionando pet 2...");
-        Pet p2 = f.addPet("Thor", "Vira-lata", 3);
+        Pet p2 = f.adicionarPet("Thor", "Vira-lata", 3);
 
         // Bruno se inscreve só depois
-        InterestedUser intBruno = new InterestedUser(bruno);
-        f.subscribeToNewPets(intBruno);
+        UsuarioInteressado intBruno = new UsuarioInteressado(bruno);
+        f.atrelarPet(intBruno);
 
         System.out.println("Adicionando pet 3...");
-        Pet p3 = f.addPet("Mia", "Poodle", 1);
+        Pet p3 = f.adicionarPet("Mia", "Poodle", 1);
 
         // Adotar um pet
-        f.registerAdoption(alice, p1);
+        f.registrarAdocao(alice, p1);
 
         System.out.println("Demo finalizada.");
     }
